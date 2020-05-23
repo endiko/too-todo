@@ -1,0 +1,284 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    font-size: 18px;
+    font-family: 'Comfortaa', cursive;
+    width: 100%;
+}
+
+body {
+    font-size: 1rem;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    position: relative;
+}
+
+h1, h3, h5 {
+    /* margin: 0;
+    padding: 0; */
+}
+
+ul, li {
+    /* margin: 0;
+    padding: 0; */
+    list-style: none;
+}
+
+.container {
+    min-width: 320px;
+    padding: 0 15px;
+    max-width: 750px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.header {
+    padding: 1.25rem 0;
+}
+
+h1 {
+    margin-bottom: 1.2rem;
+}
+
+button {
+    cursor: pointer;
+    transition: all .3s ease;
+    border-radius: 3px;
+    background: transparent;
+}
+
+button:hover {
+    background: rgba(161, 160, 160, 0.3);
+    box-shadow: 0 0 5px 3px rgba(161, 160, 160, 0.3);
+}
+
+.main {
+    flex: 1;
+    padding: 3rem 0;
+    height: 100%;
+    background: rgb(240, 240, 240);
+    background-image: linear-gradient(90deg, rgba(161, 160, 160, 0.3) 50%, transparent 0),
+                    linear-gradient(rgba(161, 160, 160, 0.3) 50%, transparent 0);
+    background-size: 30px 30px;
+}
+
+.today-date {
+    font-weight: 700;
+}
+
+.todo-form {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+.todo-form__input {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    background: #ffffff;
+}
+
+.todo-button {
+    border: none;
+    display: inline-block;
+    padding: 0;
+    background: none;
+}
+
+.todo-form-submit-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.todo-form-submit-button .fa.fa-plus-square {
+    font-size: 2rem;
+}
+
+.todo-list {
+    margin-top: 2.25rem;
+    background: #ffffff;
+    padding: 2rem 1.2rem;
+    display: none;
+}
+
+.todo-list.show {
+    display: block;
+}
+
+.todo-list__item {
+    display: grid;
+    grid-template-columns: 1fr 60px;
+    align-items: center;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #eeeeee;
+    position: relative;
+    padding-left: 3rem;
+}
+
+.todo-list__item.ondelete {
+    height: 0;
+}
+
+.deleted-message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+}
+
+.todo-list-item__text {
+    display: inline-block;
+    text-align: left;
+}
+
+.todo-list__item.completed {
+    text-decoration: line-through;
+    opacity: 0.5;
+}
+
+.todo-list__item.completed .fa-check-square {
+    color: rgb(158, 158, 158);
+}
+
+.form-buttons__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+button[data-action='check'] {
+    position: absolute;
+    left: 0;
+}
+
+.todo-button .fa {
+    font-size: 1.7rem;
+}
+
+.fa-plus-square {
+    color: rgb(19, 100, 19);
+}
+
+.fa-check-square {
+    color: rgb(91, 190, 91);
+}
+
+.fa-trash {
+    color: rgb(184, 42, 42);
+}
+
+.hidden {
+    position: absolute;
+    font-size: .65rem;
+    color: red;
+    bottom: -1.25rem;
+    left: 0;
+}
+
+.modal-overlay {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(0,0,0,.7);
+}
+
+.modal {
+    position: absolute;
+    background: #fff;
+    width: calc(100% - 30px);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 2rem;
+    min-width: 280px;
+    max-width: 500px;
+}
+
+.modal h5 {
+    margin-bottom: 1.5rem;
+}
+
+.modal-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-buttons__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 1.5rem;
+}
+
+.modal input {
+    width: 100%;
+}
+
+.modal button {
+    border: 1px solid #111;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: .75rem;
+    width: 140px;
+    height: 35px;
+}
+
+.modal .fa {
+    font-size: 1.25rem;
+    margin-right: .3rem;
+}
+
+.fa-save {
+    color: rgb(19, 100, 19);
+}
+
+.fa-ban {
+    color: rgb(184, 42, 42);
+}
+
+.modal-close {
+    top: 10px;
+    right: 15px;
+    position: fixed;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.footer {
+    font-size: .7rem;
+    padding: .5rem;
+    background: #000;
+    color: #d1cfcf;
+}
+
+.footer-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.footer-icon {
+    font-size: 1.5rem;
+    color: rgb(187, 23, 23);
+}
+
+.footer-link {
+    font-size: .75rem;
+    color: #fff;
+    text-decoration: none;
+    transition: all .25s ease-in-out;
+}
+
+.footer-link:hover {
+    text-decoration: underline;
+}
